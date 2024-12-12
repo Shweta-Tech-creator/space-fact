@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Facts App</title>
+    <style>
+        body {
+            background-color: #0a0a2a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .fact-card {
+            border: 1px solid #00f7ff;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(0, 247, 255, 0.05);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+        }
+        
+        .fact-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(0, 247, 255, 0.4),
+                        inset 0 0 15px rgba(0, 247, 255, 0.3);
+            background-color: rgba(0, 247, 255, 0.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00f7ff;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+            font-size: 2.5em;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        .fact-number {
+            font-weight: bold;
+            color: #00f7ff;
+            text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+            }
+            to {
+                text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Space Facts ⚡</h1>
+        <div id="factsContainer"></div>
+    </div>
+
+    <script>
+        const spaceData = {
+            "spaceFacts": [
+                {
+                    "id": 1,
+                    "fact": "Light from the Sun takes approximately 8 minutes and 20 seconds to reach Earth"
+                },
+                {
+                    "id": 2,
+                    "fact": "One day on Venus is longer than one year on Venus due to its slow rotation"
+                },
+                {
+                    "id": 3,
+                    "fact": "The biggest known star, UY Scuti, is about 1,700 times larger than our Sun"
+                },
+                {
+                    "id": 4,
+                    "fact": "The space between galaxies is not completely empty but contains about one atom per cubic meter"
+                },
+                {
+                    "id": 5,
+                    "fact": "The Milky Way galaxy is estimated to contain over 100 billion stars"
+                },
+                {
+                    "id": 6,
+                    "fact": "Saturn's moon Titan has liquid methane lakes and seas on its surface"
+                },
+                {
+                    "id": 7,
+                    "fact": "A black hole's gravitational pull is so strong that even light cannot escape it"
+                },
+                {
+                    "id": 8,
+                    "fact": "The International Space Station travels at approximately 17,500 mph"
+                },
+                {
+                    "id": 9,
+                    "fact": "There are more stars in the universe than grains of sand on all Earth's beaches"
+                },
+                {
+                    "id": 10,
+                    "fact": "The largest known asteroid is Ceres, which is about 940 kilometers in diameter"
+                },
+                {
+                    "id": 11,
+                    "fact": "The temperature at the Sun's core is about 15 million degrees Celsius"
+                },
+                {
+                    "id": 12,
+                    "fact": "Mars' sunset appears blue due to the way dust in its atmosphere scatters light"
+                },
+                {
+                    "id": 13,
+                    "fact": "Neptune's winds can reach speeds of up to 1,200 mph"
+                },
+                {
+                    "id": 14,
+                    "fact": "The Moon is moving approximately 3.8 cm away from Earth every year"
+                },
+                {
+                    "id": 15,
+                    "fact": "Jupiter's Great Red Spot is a storm that has been raging for at least 400 years"
+                },
+                {
+                    "id": 16,
+                    "fact": "There are more than 5,000 confirmed exoplanets in our galaxy"
+                },
+                {
+                    "id": 17,
+                    "fact": "The Hubble Space Telescope has made more than 1.5 million observations since its launch"
+                },
+                {
+                    "id": 18,
+                    "fact": "Astronauts can grow up to 2 inches taller in space due to the spine stretching"
+                },
+                {
+                    "id": 19,
+                    "fact": "The largest known galaxy, IC 1101, is 50 times the size of the Milky Way"
+                },
+                {
+                    "id": 20,
+                    "fact": "A day on Mercury lasts about 176 Earth days"
+                }
+            ]
+        };
+
+        function displayFacts() {
+            const container = document.getElementById('factsContainer');
+            
+            spaceData.spaceFacts.forEach(fact => {
+                const factCard = document.createElement('div');
+                factCard.className = 'fact-card';
+                factCard.innerHTML = `
+                    <span class="fact-number">Fact #${fact.id}:</span>
+                    <p>${fact.fact}</p>
+                `;
+                container.appendChild(factCard);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', displayFacts);
+    </script>
+</body>
+</html>
